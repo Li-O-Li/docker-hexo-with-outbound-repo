@@ -1,0 +1,12 @@
+services:
+  hexo:
+    image: lithiumhydroxide/docker-hexo-with-outbound-repo:latest
+    container_name: docker_hexo_with_outbound_repo
+    restart: always
+    env_file:
+      - .env_file
+    ports:
+      - "9000:9000"   # Webhook listen port
+    volumes:  # please modify.
+      - /your/path/to/store/keys:/root/.ssh
+      - /your/path/to/store/hexo/files:/hexo
